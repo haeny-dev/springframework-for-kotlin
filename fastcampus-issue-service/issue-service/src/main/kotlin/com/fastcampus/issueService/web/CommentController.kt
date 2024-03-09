@@ -5,6 +5,7 @@ import com.fastcampus.issueService.domain.comment.service.CommentService
 import com.fastcampus.issueService.global.config.AuthUser
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -24,6 +25,17 @@ class CommentController(
         issueId = issueId,
         userId = authUser.userId,
         userName = authUser.userName,
+        request = request,
+    )
+
+    @PutMapping("/{id}")
+    fun edit(
+        authUser: AuthUser,
+        @PathVariable id: Long,
+        @RequestBody request: CommentRequest,
+    ) = commentService.edit(
+        id = id,
+        userId = authUser.userId,
         request = request,
     )
 }
