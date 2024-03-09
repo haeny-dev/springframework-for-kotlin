@@ -31,7 +31,7 @@ subprojects {
 		implementation("com.auth0:java-jwt:4.4.0")
 
 		// Kotlin 로깅
-		// implementation("io.github.microutils:kotlin-logging:")
+		implementation("io.github.oshai:kotlin-logging-jvm:5.1.0")
 
 		// Kotlin
 		implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
