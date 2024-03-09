@@ -1,6 +1,7 @@
 package com.fastcampus.issueService.domain.issuse.service
 
 import com.fastcampus.issueService.domain.issuse.Issue
+import com.fastcampus.issueService.domain.issuse.IssueStatus
 import com.fastcampus.issueService.domain.issuse.model.IssueRequest
 import com.fastcampus.issueService.domain.issuse.model.IssueResponse
 import com.fastcampus.issueService.domain.issuse.repository.IssueRepository
@@ -17,7 +18,6 @@ class IssueService(
         userId: Long,
         request: IssueRequest
     ): IssueResponse {
-
         val issue = Issue(
             summary = request.summary,
             description = request.description,
@@ -29,4 +29,9 @@ class IssueService(
 
         return IssueResponse(issueRepository.save(issue))
     }
+
+    @Transactional(readOnly = true)
+    fun getAll(status: IssueStatus) =
+        issueRepository.findAllByStatusOrderByCreatedAtDesc(status)
+            ?.map { IssueResponse(it) }
 }
