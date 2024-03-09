@@ -4,6 +4,8 @@ import com.fastcampus.issueService.domain.issuse.IssueStatus
 import com.fastcampus.issueService.domain.issuse.model.IssueRequest
 import com.fastcampus.issueService.domain.issuse.service.IssueService
 import com.fastcampus.issueService.global.config.AuthUser
+import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
@@ -34,19 +37,27 @@ class IssueController(
         @RequestParam(required = false, defaultValue = "TODO") status: IssueStatus,
     ) = issueService.getAll(status)
 
-    @GetMapping("/{id}")
+    @GetMapping("/{issueId}")
     fun get(
         authUser: AuthUser,
-        @PathVariable id: Long,
-    ) = issueService.get(id)
+        @PathVariable issueId: Long,
+    ) = issueService.get(issueId)
 
-    @PutMapping("/{id}")
+    @PutMapping("/{issueId}")
     fun edit(
         authUser: AuthUser,
-        @PathVariable id: Long,
+        @PathVariable issueId: Long,
         @RequestBody request: IssueRequest,
     ) = issueService.edit(
         userId = authUser.userId,
-        id = id,
-        request = request)
+        id = issueId,
+        request = request
+    )
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{issueId}")
+    fun delete(
+        authUser: AuthUser,
+        @PathVariable issueId: Long,
+    ) = issueService.delete(id = issueId)
 }
