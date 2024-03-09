@@ -1,5 +1,8 @@
 package com.fastcampus.issueService.domain.issuse.model
 
+import com.fastcampus.issueService.domain.comment.Comment
+import com.fastcampus.issueService.domain.comment.model.CommentResponse
+import com.fastcampus.issueService.domain.comment.model.toResponse
 import com.fastcampus.issueService.domain.issuse.Issue
 import com.fastcampus.issueService.domain.issuse.IssuePriority
 import com.fastcampus.issueService.domain.issuse.IssueStatus
@@ -23,6 +26,7 @@ data class IssueResponse(
     val type: IssueType,
     val priority: IssuePriority,
     val status: IssueStatus,
+    val comments: List<CommentResponse> = emptyList(),
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     val createdAt: LocalDateTime?,
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -39,6 +43,7 @@ data class IssueResponse(
                     type = type,
                     priority = priority,
                     status = status,
+                    comments = comments.sortedByDescending(Comment::id).map(Comment::toResponse),
                     createdAt = createdAt,
                     updatedAt = updatedAt
                 )
