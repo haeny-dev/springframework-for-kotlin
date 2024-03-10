@@ -26,5 +26,4 @@ class Router {
                 GET("", handler::getAll)
             }
         }
-
 }
