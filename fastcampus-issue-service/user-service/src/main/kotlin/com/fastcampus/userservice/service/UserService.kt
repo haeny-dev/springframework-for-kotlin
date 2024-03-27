@@ -13,6 +13,7 @@ import com.fastcampus.userservice.global.utils.JWTUtils
 import com.fastcampus.userservice.model.SignInRequest
 import com.fastcampus.userservice.model.SignInResponse
 import com.fastcampus.userservice.model.SignUpRequest
+import kotlinx.coroutines.processNextEventInCurrentThread
 import org.springframework.stereotype.Service
 import java.time.Duration
 
@@ -94,4 +95,17 @@ class UserService(
 
     suspend fun get(userId: Long) =
         userRepository.findById(userId) ?: throw UserNotFoundException()
+
+    suspend fun edit(token: String, username: String, profileUrl: String?): User {
+        val user = this.getByToken(token)
+
+        val newUser = user.copy(
+            username = username,
+            profileUrl = profileUrl ?: user.profileUrl
+        )
+
+        return userRepository.save(newUser).also {
+            cacheManager.awaitPut(key = token, value = it, ttl = CACHE_TTL)
+        }
+    }
 }
