@@ -3,6 +3,7 @@ package com.fastcampus.userservice.service
 import com.fastcampus.userservice.domain.entity.User
 import com.fastcampus.userservice.domain.repository.UserRepository
 import com.fastcampus.userservice.global.config.JWTProperties
+import com.fastcampus.userservice.global.exception.InvalidJwtTokenException
 import com.fastcampus.userservice.global.exception.PasswordNotMatchedException
 import com.fastcampus.userservice.global.exception.UserExistsException
 import com.fastcampus.userservice.global.exception.UserNotFoundException
@@ -80,4 +81,17 @@ class UserService(
     suspend fun logout(token: String) {
         cacheManager.awaitEvict(token)
     }
+
+    suspend fun getByToken(token: String): User =
+        cacheManager.awaitGetOrPut(key = token, ttl = CACHE_TTL) {
+            // 캐시가 유효하지 않은 경우 동작
+            val decodedJWT = JWTUtils.decode(token, jwtProperties.secret, jwtProperties.issuer)
+
+            val userId = decodedJWT.claims["userId"]?.asLong() ?: throw InvalidJwtTokenException()
+
+            get(userId)
+        }
+
+    suspend fun get(userId: Long) =
+        userRepository.findById(userId) ?: throw UserNotFoundException()
 }
