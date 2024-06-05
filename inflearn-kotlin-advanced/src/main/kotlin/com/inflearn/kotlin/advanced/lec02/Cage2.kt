@@ -17,6 +17,7 @@ class Cage2<T> {
     // 데이터를 꺼낼 수만 있다.
     // 생산자 역할만 한다.
     // 타입안정성이 깨지기 때문에..
+    // 사용 지점 변성
     fun moveFrom(otherCage: Cage2<out T>) {
         otherCage.getFirst()
 //        otherCage.put(Carp("잉어")) // Error

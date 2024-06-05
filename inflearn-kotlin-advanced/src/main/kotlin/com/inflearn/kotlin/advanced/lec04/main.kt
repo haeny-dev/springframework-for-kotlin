@@ -9,6 +9,7 @@ fun main() {
 }
 
 // 생산만 하는 클래스
+// 선언 지점 변성
 class Cage3<out T> {
     private val animals: MutableList<T> = mutableListOf()
 
