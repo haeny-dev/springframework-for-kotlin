@@ -26,7 +26,7 @@ class Person {
 }
 
 class Person2{
-    // Backing Property
+    // name 과 대응하는 외부로 드러나지 않는 프로퍼티: Backing Property
     private var _name: String? = null
     val name: String
         get() {
