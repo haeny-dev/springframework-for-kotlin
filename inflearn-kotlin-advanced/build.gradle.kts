@@ -1,5 +1,8 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
-    kotlin("jvm")
+    kotlin("jvm") version "1.8.20"
+    id("me.champeau.gradle.jmh") version "0.5.3"
 }
 
 group = "com.haeny"
@@ -15,4 +18,15 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = "17"
+}
+
+jmh {
+    threads = 1
+    fork = 1
+    warmupIterations = 1
+    iterations = 1
 }
