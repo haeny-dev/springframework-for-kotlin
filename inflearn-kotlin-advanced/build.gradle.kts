@@ -14,6 +14,7 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.20")
+    implementation("org.reflections:reflections:0.10.2")
     testImplementation(kotlin("test"))
 }
 
