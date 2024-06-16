@@ -11,9 +11,9 @@ fun main() {
     // 최종연산이 나오기 전까지 계산 자체를 미리 하지 않는다. (지연연산)
     val avg = fruits.asSequence()
         .filter { it.name == "사과" } // 중간연산
-        .map { it.price }           // 중간연산
-        .take(10_000)           // 중간연산
-        .average()                  // 최종연산
+        .map { it.price } // 중간연산
+        .take(10_000) // 중간연산
+        .average() // 최종연산
 }
 
 data class Fruit(

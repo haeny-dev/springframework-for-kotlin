@@ -1,6 +1,5 @@
 package com.inflearn.kotlin.advanced.lec02
 
-import com.inflearn.kotlin.advanced.lec01.Carp
 import com.inflearn.kotlin.advanced.lec01.Fish
 import com.inflearn.kotlin.advanced.lec01.GoldFish
 

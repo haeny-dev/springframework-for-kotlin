@@ -3,7 +3,6 @@ package com.inflearn.kotlin.advanced.lec09
 import kotlin.reflect.KProperty
 
 fun main() {
-
 }
 
 class Person3 {

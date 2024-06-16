@@ -3,6 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.8.20"
     id("me.champeau.gradle.jmh") version "0.5.3"
+    id("org.jetbrains.dokka") version "1.8.20"
+    id("org.jlleitschuh.gradle.ktlint") version "11.0.0"
 }
 
 group = "com.haeny"
@@ -13,6 +15,8 @@ repositories {
 }
 
 dependencies {
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.20")
+    implementation("org.reflections:reflections:0.10.2")
     testImplementation(kotlin("test"))
 }
 

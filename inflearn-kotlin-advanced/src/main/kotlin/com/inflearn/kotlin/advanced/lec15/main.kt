@@ -12,7 +12,7 @@ fun main() {
     repeat(2) { println("Hello World") }
 
     iterate(listOf(1, 2, 3, 4, 5)) { num ->
-        if(num == 3) {
+        if (num == 3) {
 //            return    // crossinline 키워드에 의해서 금지된다
         }
         println(num)

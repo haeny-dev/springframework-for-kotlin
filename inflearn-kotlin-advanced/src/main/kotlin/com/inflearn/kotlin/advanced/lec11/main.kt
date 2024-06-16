@@ -1,7 +1,5 @@
 package com.inflearn.kotlin.advanced.lec11
 
-import com.inflearn.kotlin.advanced.lec08.Person
-import com.inflearn.kotlin.advanced.lec09.Person3
 import kotlin.properties.PropertyDelegateProvider
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
@@ -46,7 +44,7 @@ class DelegateProperty(
     }
 }
 
-class LazyInitProperty<T>(val init: () -> T): ReadOnlyProperty<Any, T> {
+class LazyInitProperty<T>(val init: () -> T) : ReadOnlyProperty<Any, T> {
     private var _value: T? = null
     val value: T
         get() {

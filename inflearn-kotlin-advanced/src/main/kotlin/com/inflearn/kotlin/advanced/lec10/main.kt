@@ -1,9 +1,5 @@
 package com.inflearn.kotlin.advanced.lec10
 
-import kotlin.properties.Delegates.notNull
-import kotlin.properties.Delegates.observable
-import kotlin.properties.Delegates.vetoable
-
 fun main() {
 //    val p = Person()
 //    p.age = 30
