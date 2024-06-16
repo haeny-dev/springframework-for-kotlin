@@ -23,7 +23,7 @@ fun main() {
 //    val carp: Carp = cage.getFirst() as Carp
 
     cage.put(GoldFish("사실은 금붕어"))
-    val carp: Carp = cage.getFirst() as Carp    // Runtime Error
+    val carp: Carp = cage.getFirst() as Carp // Runtime Error
 
     val cage2 = Cage2<Carp>()
     cage2.put(Carp("잉어"))

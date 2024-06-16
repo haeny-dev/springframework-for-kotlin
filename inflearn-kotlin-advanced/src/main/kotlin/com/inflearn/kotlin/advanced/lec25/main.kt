@@ -12,7 +12,6 @@ fun main() {
 //    handle(inlineUserId, inlineBookId)
 
     try {
-
     } catch (e: Exception) {
         when (e) {
             is AException,
@@ -58,7 +57,6 @@ class Book(
 )
 
 fun handle(userId: Id<User>, bookId: Id<Book>) {
-
 }
 
 @JvmInline

@@ -124,7 +124,7 @@ class BService(
     private val aService: AService,
     private val cService: CService?,
 ) {
-    constructor(aService: AService): this(aService, null)
+    constructor(aService: AService) : this(aService, null)
 
     fun print() {
         this.aService.print()

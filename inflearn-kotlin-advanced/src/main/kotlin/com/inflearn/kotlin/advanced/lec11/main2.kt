@@ -1,10 +1,9 @@
 package com.inflearn.kotlin.advanced.lec11
 
 fun main() {
-
 }
 
-interface Fruit  {
+interface Fruit {
     val name: String
     val color: String
     fun bite()
@@ -40,7 +39,7 @@ class GreenApple2 : Apple() {
 // 클래스의 위임
 class GreenApple3(
     private val apple: Apple,
-) : Fruit by apple{
+) : Fruit by apple {
     override val color: String
         get() = "초록색"
 }

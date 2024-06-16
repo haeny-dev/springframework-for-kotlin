@@ -1,7 +1,5 @@
 package com.inflearn.kotlin.advanced.lec24
 
-import kotlin.system.measureTimeMillis
-
 fun main() {
     repeat(3) {
         println("Hello World")
@@ -14,7 +12,6 @@ fun main() {
 //    }
 
     val result: Result<Int> = runCatching { 1 / 0 }
-
 }
 
 fun acceptOnlyTwo(num: Int) {

@@ -1,7 +1,5 @@
 package com.inflearn.kotlin.advanced.lec20
 
-import kotlin.reflect.KClass
-
 /**
  * @Retention
  * 해당 어노테이션이 저장되고 유지되는 방식을 제어
@@ -21,7 +19,6 @@ import kotlin.reflect.KClass
  */
 
 fun main() {
-
 }
 
 /**
@@ -40,7 +37,7 @@ fun main() {
  * 여러 언어 요소에 어노테이션이 붙을 수 있다면,
  * param > property > field 순서
  */
-//class Hello(@get:Shape val name: String)
+// class Hello(@get:Shape val name: String)
 
 @Shape(["aa", "bb"])
 @Shape(["cc", "dd"])
@@ -53,4 +50,3 @@ annotation class Shape(
 //    val number: Int,
 //    val clazz: KClass<*>,
 )
-

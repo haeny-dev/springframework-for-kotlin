@@ -25,10 +25,8 @@ fun main() {
     list += "D" // 복합대입연산자가 구현되어 있다! 바로 호출
 
     var list2 = listOf("A", "B", "C")
-    list2 += "D"    // 복합대입연산자가 구현되어 있지 않고 var 라면, list2 = list2 + "D" 로 연산한다.
+    list2 += "D" // 복합대입연산자가 구현되어 있지 않고 var 라면, list2 = list2 + "D" 로 연산한다.
     // val 이라면 Error 발생
-
-
 }
 
 data class Point(

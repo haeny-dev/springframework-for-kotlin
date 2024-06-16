@@ -1,6 +1,5 @@
 package com.inflearn.kotlin.advanced.lec23
 
-import com.inflearn.kotlin.advanced.lec01.Animal
 import com.inflearn.kotlin.advanced.lec01.Carp
 import com.inflearn.kotlin.advanced.lec01.GoldFish
 import kotlin.reflect.KType
@@ -37,7 +36,7 @@ class SuperTypeSafeCage {
     }
 
     fun <T : Any> putOne(token: SuperTypeToken<T>, animal: T) {
-        animals[token] =  animal
+        animals[token] = animal
     }
 }
 
@@ -59,4 +58,3 @@ abstract class SuperTypeToken<T> {
         return type.hashCode()
     }
 }
-

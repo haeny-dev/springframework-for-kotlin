@@ -33,7 +33,7 @@ fun main() {
     })
 
     iterate(listOf(1, 2, 3, 4, 5)) { num ->
-        if (num == 3){
+        if (num == 3) {
 //            return    // Error
         }
         println(num)
@@ -58,9 +58,9 @@ enum class Operator(
     private val oper: Char,
     val calcFun: (Int, Int) -> Int,
 ) {
-    PLUS('+', { a, b -> a + b}),
-    MINUS('-', { a, b -> a - b}),
-    MULTIPLY('*', { a , b -> a * b}),
+    PLUS('+', { a, b -> a + b }),
+    MINUS('-', { a, b -> a - b }),
+    MULTIPLY('*', { a, b -> a * b }),
     DIVIDE('/', { a, b ->
         if (b == 0) {
             throw IllegalArgumentException("0 으로 나눌 수 없습니다.")

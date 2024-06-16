@@ -19,7 +19,6 @@ inline fun <reified T> List<*>.hasAnyInstanceOf(): Boolean {
     return this.any { it is T }
 }
 
-
 fun <T> T.toSuperString() {
     // 제네릭은 Runtime 때 클래스 정보가 사라진다.
 //    println("${T::class.java.name}: $this")

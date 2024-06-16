@@ -3,6 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.8.20"
     id("me.champeau.gradle.jmh") version "0.5.3"
+    id("org.jetbrains.dokka") version "1.8.20"
+    id("org.jlleitschuh.gradle.ktlint") version "11.0.0"
 }
 
 group = "com.haeny"

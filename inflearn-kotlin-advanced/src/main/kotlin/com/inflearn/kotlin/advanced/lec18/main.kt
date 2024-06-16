@@ -23,7 +23,6 @@ fun main() {
     val yml2 = dockerCompose {
         service("") {
             this@dockerCompose.service("") {
-
             }
         }
     }

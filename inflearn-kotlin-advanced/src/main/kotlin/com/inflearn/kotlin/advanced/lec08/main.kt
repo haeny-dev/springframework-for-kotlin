@@ -10,7 +10,6 @@ package com.inflearn.kotlin.advanced.lec08
  * - 초기화 로직은 변수 선언과 동시에 한 곳에만 위치할 수 있다.
  */
 fun main() {
-
 }
 
 class Person {
@@ -25,7 +24,7 @@ class Person {
         get() = name[0] + (1 until name.length).joinToString("") { "*" }
 }
 
-class Person2{
+class Person2 {
     // name 과 대응하는 외부로 드러나지 않는 프로퍼티: Backing Property
     private var _name: String? = null
     val name: String

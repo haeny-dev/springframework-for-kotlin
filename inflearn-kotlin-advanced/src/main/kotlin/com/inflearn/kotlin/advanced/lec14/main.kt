@@ -1,7 +1,7 @@
 package com.inflearn.kotlin.advanced.lec14
 
 fun main() {
-    compute(5, 3) { num1, num2 -> num1 + num2}
+    compute(5, 3) { num1, num2 -> num1 + num2 }
 
     var num = 5
     num += 1
