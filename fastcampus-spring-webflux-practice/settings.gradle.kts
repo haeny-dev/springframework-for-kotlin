@@ -1,1 +1,1 @@
-rootProject.name = "springwebflux"
+rootProject.name = "fastcampus-spring-webflux-practice"
